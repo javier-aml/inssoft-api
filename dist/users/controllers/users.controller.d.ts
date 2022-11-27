@@ -5,5 +5,6 @@ export declare class UsersController {
     private userService;
     constructor(userService: UsersService);
     create(usersInterface: UsersInterface): Observable<UsersInterface>;
-    get(): Observable<UsersInterface[]>;
+    getAllUsers(): Observable<UsersInterface[]>;
+    getUserByEmail(query: object): Observable<UsersInterface[]>;
 }

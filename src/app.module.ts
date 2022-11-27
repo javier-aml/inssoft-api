@@ -17,7 +17,7 @@ import { UsersEntity } from './users/models/users.entity';
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
       entities: [UsersEntity],
-      synchronize: true
+      synchronize: false
     }),
     UsersModule
   ],

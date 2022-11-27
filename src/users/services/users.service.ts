@@ -16,7 +16,11 @@ export class UsersService {
         return from(this.usersRepository.save(userInterface));
     }
 
-    get(): Observable<UsersInterface[]> {
+    getAllUsers(): Observable<UsersInterface[]> {
         return from(this.usersRepository.find());
+    }
+
+    getAUsersByEmail(email: string): Observable<UsersInterface[]> {
+        return from(this.usersRepository.find({where: {email}}));
     }
 }

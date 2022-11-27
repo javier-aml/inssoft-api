@@ -25,8 +25,11 @@ let UsersService = class UsersService {
     create(userInterface) {
         return (0, rxjs_1.from)(this.usersRepository.save(userInterface));
     }
-    get() {
+    getAllUsers() {
         return (0, rxjs_1.from)(this.usersRepository.find());
+    }
+    getAUsersByEmail(email) {
+        return (0, rxjs_1.from)(this.usersRepository.find({ where: { email } }));
     }
 };
 UsersService = __decorate([

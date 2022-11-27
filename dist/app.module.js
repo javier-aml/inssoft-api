@@ -28,7 +28,7 @@ AppModule = __decorate([
                 password: process.env.DB_PASSWORD,
                 database: process.env.DB_DATABASE,
                 entities: [users_entity_1.UsersEntity],
-                synchronize: true
+                synchronize: false
             }),
             users_module_1.UsersModule
         ],

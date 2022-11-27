@@ -15,14 +15,34 @@ let UsersEntity = class UsersEntity {
 };
 __decorate([
     (0, typeorm_1.PrimaryColumn)(),
-    __metadata("design:type", String)
-], UsersEntity.prototype, "UserName", void 0);
+    __metadata("design:type", Number)
+], UsersEntity.prototype, "user_id", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], UsersEntity.prototype, "UserPassword", void 0);
+], UsersEntity.prototype, "name", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], UsersEntity.prototype, "last_names", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", Number)
+], UsersEntity.prototype, "gender_id", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", Number)
+], UsersEntity.prototype, "telephone_number", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], UsersEntity.prototype, "email", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], UsersEntity.prototype, "password", void 0);
 UsersEntity = __decorate([
-    (0, typeorm_1.Entity)('users')
+    (0, typeorm_1.Entity)('users_cat')
 ], UsersEntity);
 exports.UsersEntity = UsersEntity;
 //# sourceMappingURL=users.entity.js.map

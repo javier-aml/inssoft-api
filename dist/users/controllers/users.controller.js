@@ -23,8 +23,12 @@ let UsersController = class UsersController {
     create(usersInterface) {
         return this.userService.create(usersInterface);
     }
-    get() {
-        return this.userService.get();
+    getAllUsers() {
+        return this.userService.getAllUsers();
+    }
+    getUserByEmail(query) {
+        const email = query['email'];
+        return this.userService.getAUsersByEmail(email);
     }
 };
 __decorate([
@@ -35,11 +39,18 @@ __decorate([
     __metadata("design:returntype", rxjs_1.Observable)
 ], UsersController.prototype, "create", null);
 __decorate([
-    (0, common_1.Get)(),
+    (0, common_1.Get)('all'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", rxjs_1.Observable)
-], UsersController.prototype, "get", null);
+], UsersController.prototype, "getAllUsers", null);
+__decorate([
+    (0, common_1.Get)(''),
+    __param(0, (0, common_1.Query)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", rxjs_1.Observable)
+], UsersController.prototype, "getUserByEmail", null);
 UsersController = __decorate([
     (0, common_1.Controller)('users'),
     __metadata("design:paramtypes", [users_service_1.UsersService])
