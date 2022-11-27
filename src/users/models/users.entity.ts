@@ -1,9 +1,10 @@
 import internal from 'stream';
-import { Entity, Column, PrimaryColumn } from 'typeorm'
+import { Entity, Column, PrimaryColumn, Generated } from 'typeorm'
 
 @Entity('users_cat')
 export class UsersEntity {
     @PrimaryColumn()
+    @Generated('increment')
     user_id: number;
 
     @Column()

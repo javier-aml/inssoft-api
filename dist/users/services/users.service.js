@@ -18,12 +18,14 @@ const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 const users_entity_1 = require("../models/users.entity");
 const rxjs_1 = require("rxjs");
+const encrypt_password_1 = require("../../utilities/encrypt_password");
 let UsersService = class UsersService {
     constructor(usersRepository) {
         this.usersRepository = usersRepository;
     }
-    create(userInterface) {
-        return (0, rxjs_1.from)(this.usersRepository.save(userInterface));
+    async createUser(userInterface) {
+        const password = await (0, encrypt_password_1.encryptPassword)(userInterface.password);
+        return (0, rxjs_1.from)(this.usersRepository.save(Object.assign(Object.assign({}, userInterface), { password })));
     }
     getAllUsers() {
         return (0, rxjs_1.from)(this.usersRepository.find());

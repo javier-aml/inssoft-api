@@ -15,6 +15,7 @@ let UsersEntity = class UsersEntity {
 };
 __decorate([
     (0, typeorm_1.PrimaryColumn)(),
+    (0, typeorm_1.Generated)('increment'),
     __metadata("design:type", Number)
 ], UsersEntity.prototype, "user_id", void 0);
 __decorate([

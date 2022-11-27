@@ -5,7 +5,15 @@ import { Observable } from 'rxjs';
 export declare class UsersService {
     private readonly usersRepository;
     constructor(usersRepository: Repository<UsersEntity>);
-    create(userInterface: UsersInterface): Observable<UsersInterface>;
+    createUser(userInterface: UsersInterface): Promise<Observable<{
+        password: string;
+        user_id?: number;
+        name?: string;
+        lastNames?: string;
+        genderId?: number;
+        telephoneNumber?: number;
+        email?: string;
+    } & UsersEntity>>;
     getAllUsers(): Observable<UsersInterface[]>;
     getAUsersByEmail(email: string): Observable<UsersInterface[]>;
 }

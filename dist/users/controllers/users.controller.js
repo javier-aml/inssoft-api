@@ -20,8 +20,8 @@ let UsersController = class UsersController {
     constructor(userService) {
         this.userService = userService;
     }
-    create(usersInterface) {
-        return this.userService.create(usersInterface);
+    async createUser(usersInterface) {
+        return await this.userService.createUser(usersInterface);
     }
     getAllUsers() {
         return this.userService.getAllUsers();
@@ -36,8 +36,8 @@ __decorate([
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", rxjs_1.Observable)
-], UsersController.prototype, "create", null);
+    __metadata("design:returntype", Promise)
+], UsersController.prototype, "createUser", null);
 __decorate([
     (0, common_1.Get)('all'),
     __metadata("design:type", Function),

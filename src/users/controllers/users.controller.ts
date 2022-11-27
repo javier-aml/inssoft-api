@@ -8,8 +8,8 @@ export class UsersController {
     constructor(private userService: UsersService) {}
 
     @Post()
-    create(@Body() usersInterface: UsersInterface): Observable<UsersInterface> {
-        return this.userService.create(usersInterface);
+    async createUser(@Body() usersInterface: UsersInterface){
+        return await this.userService.createUser(usersInterface);
     }
 
     @Get('all')

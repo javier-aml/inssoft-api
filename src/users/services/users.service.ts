@@ -4,6 +4,7 @@ import { Repository } from 'typeorm'
 import { UsersEntity } from '../models/users.entity'
 import { UsersInterface } from '../models/users.interface';
 import { from, Observable } from 'rxjs'
+import { encryptPassword } from 'src/utilities/encrypt_password';
 
 @Injectable()
 export class UsersService {
@@ -12,8 +13,9 @@ export class UsersService {
         private readonly usersRepository: Repository<UsersEntity>
     ) {}
 
-    create(userInterface: UsersInterface): Observable<UsersInterface> {
-        return from(this.usersRepository.save(userInterface));
+    async createUser(userInterface: UsersInterface){
+        const password = await encryptPassword(userInterface.password);
+        return from(this.usersRepository.save({...userInterface, password}));
     }
 
     getAllUsers(): Observable<UsersInterface[]> {
